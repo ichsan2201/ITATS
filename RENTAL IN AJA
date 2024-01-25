@@ -1,0 +1,136 @@
+#include <iostream>
+#include <string>
+#include "view/viewMobil.h"
+#include "view/viewmember.h"
+#include "model/pembayaran.h"
+
+
+using namespace std;
+
+void menumobil(){
+    int pilihan;
+    cout << "DAFTAR MOBIL "<< endl;
+    cout << "1. Tambah Mobil"<< endl;
+    cout << "2. Lihat Mobil" << endl;
+    cout << "3. Cari Mobil" << endl;
+    cout << "4. Exit" <<endl;
+    cout << "Masukkan pilihan :";
+    cin >> pilihan;
+    switch (pilihan){
+        case 1:
+        vAddmobil();
+        break;
+        case 2:
+        vViewMobil();
+        system("pause");
+        break;
+        case 3:
+        vSearchmobil();
+        system("pause");
+        break;
+        case 4:
+        cout << "terima kasih telah menggunakan Jasa Rental Kami"<<endl;
+        exit(0);
+        break;
+        default:
+        cout << "pilihan tidak tersedia"<<endl;
+        break;
+    }
+}
+
+void MenuMember(){
+    int pilihan;
+    cout << "Menu Member" <<endl;
+    cout << "1. Tambah Member"<<endl;
+    cout << "2. Lihat Member"<< endl;
+    cout << "3. Cari Member" << endl;
+    cout << "4. Update Password" << endl;
+    cout << "5. Exit"<<endl;
+    cout << "Masukkan pilihan :";
+    cin >> pilihan;
+    switch (pilihan){
+        case 1:
+        vAddMember();
+        break;
+        case 2:
+        vViewprofil();
+        system("pause");
+        break;
+        case 3:
+        vSearchprofil();
+        system("pause");
+        break;
+        case 4:
+        vUpdatepass();
+        system("pause");
+        break;
+        case 5:
+        cout << "Terima kasih telah menggunakan aplikasih kami"<<endl;
+        exit(0);
+        break;
+        default :
+        cout << "Tidak ada pilihan"<<endl;
+        break;
+    }
+}
+
+void MenuPembayaran(){
+    pembayaran();
+}
+
+void MenuUtama(){
+    int pilihan;
+    cout<<"========================================"<<endl;
+    cout << "SELAMAT DATANG DI RENTAL IN AJA"<<endl;
+    mnama ();
+    cout<<"========================================"<<endl;
+    cout << " Menu Utama "<<endl;
+    cout << "1. Menu Mobil"<<endl;
+    cout << "2. Menu Member"<<endl;
+    cout << "3. Booking Mobil"<<endl;
+    cout << "4. Exit"<<endl;
+    cout << "Masukkan pilihan :";
+    cin >> pilihan;
+    switch (pilihan){
+        case 1:
+        system("cls");
+        menumobil();
+        break;
+        case 2:
+        system("cls");
+        MenuMember();
+        break;
+        case 3:
+        system("cls");
+        MenuPembayaran();
+        break;
+        case 4:
+        cout<<"Terimakasih Telah Menggunakan Program Kami";
+        exit(0);
+        break;
+        default:
+        cout << "pilihan tidak tersedia"<<endl;
+        break;
+    }
+}
+
+int main() {
+    bool exitProgram = false;
+    cout << "========================================" <<endl;
+    cout << "SELAMAT DATANG DI RENTAL IN AJA" <<endl;
+    cout << "========================================" <<endl;
+    cout << "Silahkan Registrasi Member" << endl;
+    vAddMember();
+    login();
+
+    do {
+        system("cls");
+        MenuUtama();
+
+    } while (!exitProgram);
+
+    cout << "Terima Kasih Telah Menggunakan Program Kami" << endl;
+
+    return 0;
+}
+
